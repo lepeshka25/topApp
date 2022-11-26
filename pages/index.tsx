@@ -1,4 +1,4 @@
-import {Tag, P , Htag , Button, Rating} from "../components";
+import {Rating} from "../components";
 import styles from '../styles/Home.module.css';
 import React from "react";
 import {withLayout} from "../layout/Layout";

@@ -1,7 +1,12 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-  swcMinify: true,
-}
+// eslint-disable-next-line no-undef
+module.exports = {
+	webpack(config) {
+		config.module.rules.push({
+			test: /\.svg$/i,
+			issuer: /\.(js|ts)x?$/,
+			use: ['@svgr/webpack']
+		});
 
-module.exports = nextConfig
+		return config;
+	}
+};

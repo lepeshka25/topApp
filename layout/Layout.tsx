@@ -5,23 +5,21 @@ import Sidebar from "./Sidebar/Sidebar";
 import Footer from "./Footer/Footer";
 import cs from './Layout.module.css';
 
-const Layout = ({children, ...props}: LayoutProps): JSX.Element => {
+const Layout = ({children}: LayoutProps): JSX.Element => {
 	return (
-		<>
-			<Header/>
-			<div>
-				<Sidebar/>
-				<div>
-					{children}
-				</div>
+		<div className={cs.wrapper}>
+			<Header className={cs.header}/>
+			<Sidebar className={cs.sidebar}/>
+			<div className={cs.body}>
+				{children}
 			</div>
-			<Footer/>
-		</>
+			<Footer className={cs.footer}/>
+		</div>
 	);
 };
 
 export const withLayout = <T extends Record<string, unknown>>(Component: FunctionComponent<T>) => {
-	return function withLayoutComponent (props: T): JSX.Element{
+	return function withLayoutComponent(props: T): JSX.Element {
 		return (
 			<Layout>
 				<Component {...props}/>
